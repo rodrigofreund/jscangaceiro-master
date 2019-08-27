@@ -1,7 +1,5 @@
-class NegociacoesView {
-    constructor(seletor) {
-        this._elemento = document.querySelector(seletor);
-    }
+class NegociacoesView extends View {
+
     template(model) {
         return `
         <table class="table table-hover table-bordered">
@@ -27,10 +25,11 @@ class NegociacoesView {
                     `
                 }).join('')}
             <tfoot>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>${model.volumeTotal}</td>
+                </tr>
             </tfoot>
         </table>`
-    }
-    update(negociacoes) {
-        this._elemento.innerHTML = this.template(negociacoes);
     }
 }
